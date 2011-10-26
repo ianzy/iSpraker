@@ -11,11 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111025071632) do
+ActiveRecord::Schema.define(:version => 20111026070747) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
     t.boolean  "public_access"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "url"
+    t.decimal  "lat"
+    t.decimal  "lng"
+    t.string   "address"
+    t.datetime "event_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "services", :force => true do |t|
+    t.string   "uid"
+    t.string   "token"
+    t.string   "secret"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,6 +53,15 @@ ActiveRecord::Schema.define(:version => 20111025071632) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "lat"
+    t.decimal  "lng"
+    t.string   "token"
+    t.string   "secret"
+    t.string   "uid"
+    t.string   "screen_name"
+    t.string   "profile_image_url"
+    t.string   "description"
+    t.string   "time_zone"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

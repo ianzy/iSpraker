@@ -4,6 +4,13 @@ ISpraker::Application.routes.draw do
   get "pages/welcome"
 
   root :to => "pages#welcome"
+  
+  namespace :api do
+    scope ':api_key' do
+      resources :users
+      resources :events
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

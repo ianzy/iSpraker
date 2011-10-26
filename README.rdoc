@@ -1,0 +1,15 @@
+== Getting started
+  bundle install
+  
+  rake db:migrate
+  rake db:seed
+  
+Run the app with:
+  rails s
+and try out the welcome page
+  localhost:3000
+  
+Try out the api:
+  http://localhost:3000/api/9b02756d6564a40dfa6436c3001a1441/users.json?token=9b02756d6564a40dfa6436c3001a14410
+or
+  http://localhost:3000/api/9b02756d6564a40dfa6436c3001a1441/events.json?token=9b02756d6564a40dfa6436c3001a14410
