@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>iSpraker</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -16,17 +16,32 @@
 	<%= stylesheet_link_tag    "application" %>
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
-	<style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-    </style>
-
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	
+	  $(document).ready(function() {
+		$("#fb_bar").hide()
+		$("#gplus_bar").hide()
+		$("#facebook_btn").click(function() {
+			$("#fb_bar").slideToggle()
+			})
+			
+		$("#gplusbtn").click(function() {
+			$("#gplus_bar").slideToggle()
+		})
+		
+		})
+	</script>
   </head>
 
   <body>
@@ -34,23 +49,38 @@
     <div class="topbar">
       <div class="fill">
         <div class="container">
-          <a class="brand" href="#">Project name</a>
-          <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+          <a class="brand" href="#">iSpraker</a>
         </div>
+		<div id="propaganda">
+		<span class="btn primary"><a href="https://twitter.com/share" data-count="none">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script></span>
+		<a id="facebook_btn" class="btn primary">facebook</a>
+		<div id="gplusbtn" class="btn primary">Google+</div>
+		</div>
+		</div>
       </div>
     </div>
-
-    <div class="container">
+	<div id="fb-root"></div>
+	<div id="fb_bar" class="fb-like" style="position:absolute;top:40px;right:0px" data-send="true" data-width="450" data-show-faces="false"></div>	</div>
+	<div id="gplus_bar" style="background-color:white;position:absolute;top:40px;right:0px">
+		<g:plusone annotation="inline"></g:plusone>
+	</div>
+	
+    <div>
       <%= yield %>
-    </div> <!-- /container -->
-    <footer>
-      <div class="container">
-        <p>&copy; Company 2011</p>
-      </div>
-    </footer>
+    </div>
+
+	<div id="footer">
+	   <div class="container">
+	   	<div class="nav">
+	   		<ul>
+	      			<li><a href="/aboutus">About us</a></li>
+	      			<li><a href="#" target="_blank">Press</a></li>
+	      			<li><a href="/contactus">Contact</a></li>
+	      			<li><a href="/api">Developers</a></li>
+	   		</ul>
+	   	</div>
+	   	<br>
+	   </div>
+	</div>
   </body>
 </html>
