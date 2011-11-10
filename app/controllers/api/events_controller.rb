@@ -1,6 +1,6 @@
 class Api::EventsController < Api::BaseController
 
-    def collection
+  def collection
     latitude = params[:latitude]
     longitude = params[:longitude]
 
@@ -12,8 +12,9 @@ class Api::EventsController < Api::BaseController
 
     collection = super
     collection.where(:lat => lat_lhs_range..lat_rhs_range,
-                     :lng => lng_lhs_range..lng_rhs_range ).select("name, description, url, lat, lng, address, event_time, created_at, updated_at")
+                     :lng => lng_lhs_range..lng_rhs_range ).select("name, description, url, lat, lng, address, event_time, created_at, updated_at") if latitude && longitude
 
+    collection
   end
   
 end
