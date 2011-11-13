@@ -54,5 +54,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
+  # gems specifically for Heroku go here
+  gem "pg"
 end
