@@ -1,7 +1,8 @@
 class Api::BaseController < ApplicationController
   inherit_resources
   
-  before_filter :authenticate_api_key_and_token!
+  before_filter :authenticate_api_key!
+  before_filter :authenticate_token!, :except=>[:create]
   
   respond_to :json
   
@@ -43,8 +44,12 @@ class Api::BaseController < ApplicationController
     collection.page(default_pagination_options[:page]).per(default_pagination_options[:per_page])
   end
   
-  def authenticate_api_key_and_token!
-    render(:json => {"error" => "invalid API key or token"}, :status => 403) and return unless (key = ApiKey.find_by_key(params[:api_key]) && (user = User.find_by_token(params[:token])))
+  def authenticate_api_key!
+    render(:json => {"error" => "invalid API key"}, :status => 403) and return unless (key = ApiKey.find_by_key(params[:api_key]))
+  end
+  
+  def authenticate_token!
+    render(:json => {"error" => "invalid token"}, :status => 403) and return unless ( user = User.find_by_token(params[:token]))
     self.current_user = user
   end
   
