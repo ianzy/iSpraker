@@ -40,33 +40,34 @@ class Api::UsersController < Api::BaseController
   end
 
   def update
-    @user = User.find_by_token(params[:token])
     requested_options = params[:user].only('screen_name','description','email','profile_image_url','time_zone').symbolize_keys
-
-     if requested_options.empty?
-          render_errors_json(['Bad Request'], 400)
-        else
-          @user.update_attributes(requested_options)
-          respond_to do |format|
-            format.json do
-              render :json => {:msg=>"Update User Info Success"}
-            end
-          end
-
-     end
-
+    
+    if requested_options.empty?
+      render_errors_json(['Bad Request'], 400)
+    else
+      user = User.find_by_token(params[:token])
+      raise ActiveRecord::RecordNotFound unless user
+      user.update_attributes(requested_options)
+      respond_to do |format|
+        format.json do
+          render :json => {:msg=>"Update User Info Success"}
+        end
+      end
+    end
   end
 
 
 
   def location
-    @user = User.find_by_token(params[:token])
     requested_options = params[:user].only('lat','lng').symbolize_keys
-    
     if requested_options.empty?
       render_errors_json(['Bad Request'], 400)
     else
-      @user.update_attributes(requested_options)
+      # requested_options.each {|k,v| requested_options[k] = v.to_d}
+      
+      user = User.find_by_uid(params[:id])
+      raise ActiveRecord::RecordNotFound unless user
+      user.update_attributes(requested_options)
       respond_to do |format|
         format.json do
           render :json => {:msg=>"Update User Info Success"}
