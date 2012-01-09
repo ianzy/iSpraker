@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111026070747) do
+ActiveRecord::Schema.define(:version => 20111216082251) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(:version => 20111026070747) do
     t.decimal  "lng"
     t.string   "address"
     t.datetime "event_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "hash_tags", :force => true do |t|
+    t.string   "hash_tag"
+    t.decimal  "lat"
+    t.decimal  "lng"
+    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

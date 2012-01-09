@@ -9,6 +9,7 @@ ISpraker::Application.routes.draw do
     scope ':api_key' do
       resources :users
       resources :events
+      resources :hash_tags
       match 'users/:id/location' => 'users#location', :via => :PUT
     end
   end
