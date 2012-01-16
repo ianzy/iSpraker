@@ -1,4 +1,6 @@
 ISpraker::Application.routes.draw do
+
+
   devise_for :users
 
   get "pages/welcome"
@@ -11,6 +13,7 @@ ISpraker::Application.routes.draw do
       resources :events
       resources :hash_tags
       match 'users/:id/location' => 'users#location', :via => :PUT
+      resources :messages#, :only => [:index, :create]
     end
   end
   # The priority is based upon order of creation:

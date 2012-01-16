@@ -2,7 +2,7 @@ class Api::BaseController < ApplicationController
   inherit_resources
   
   before_filter :authenticate_api_key!
-  before_filter :authenticate_token!, :except=>[:create]
+  before_filter :authenticate_token!, :except=>[:create, :show]
   
   respond_to :json
   

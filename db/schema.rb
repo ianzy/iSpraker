@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111216082251) do
+ActiveRecord::Schema.define(:version => 20120116053136) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(:version => 20111216082251) do
     t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "sender_name"
+    t.string   "sender_profile_image_url"
   end
 
   create_table "services", :force => true do |t|
