@@ -13,7 +13,7 @@ class Api::UsersController < Api::BaseController
     collection = super
     collection.where(:lat => lat_lhs_range..lat_rhs_range,
                      :lng => lng_lhs_range..lng_rhs_range ).select("uid, screen_name, email, created_at, updated_at, lat, lng, profile_image_url, description, time_zone, real_name, position, company, phone_number") if latitude && longitude
-    # collection
+    collection
   end
 
   def show
