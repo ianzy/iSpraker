@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120116053136) do
+ActiveRecord::Schema.define(:version => 20120119095053) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(:version => 20120116053136) do
   end
 
   create_table "messages", :force => true do |t|
-    t.integer  "sender_id"
-    t.integer  "receiver_id"
+    t.string   "sender_id"
+    t.string   "receiver_id"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -81,6 +81,11 @@ ActiveRecord::Schema.define(:version => 20120116053136) do
     t.string   "profile_image_url"
     t.string   "description"
     t.string   "time_zone"
+    t.string   "real_name"
+    t.string   "position"
+    t.string   "company"
+    t.string   "interests"
+    t.string   "phone_number"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

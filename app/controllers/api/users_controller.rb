@@ -12,8 +12,8 @@ class Api::UsersController < Api::BaseController
   
     collection = super
     collection.where(:lat => lat_lhs_range..lat_rhs_range,
-                     :lng => lng_lhs_range..lng_rhs_range ).select("uid, screen_name, email, created_at, updated_at, lat, lng, profile_image_url, description, time_zone") if latitude && longitude
-    collection
+                     :lng => lng_lhs_range..lng_rhs_range ).select("uid, screen_name, email, created_at, updated_at, lat, lng, profile_image_url, description, time_zone, real_name, position, company, phone_number") if latitude && longitude
+    # collection
   end
 
   def show
@@ -40,12 +40,12 @@ class Api::UsersController < Api::BaseController
   end
 
   def update
-    requested_options = params[:user].only('screen_name','description','email','profile_image_url','time_zone').symbolize_keys
+    requested_options = params[:user].only('screen_name','description','email','profile_image_url','time_zone','real_name','position','company','phone_number').symbolize_keys
     
     if requested_options.empty?
       render_errors_json(['Bad Request'], 400)
     else
-      user = User.find_by_token(params[:token])
+      user = User.find_by_uid(params[:id])
       raise ActiveRecord::RecordNotFound unless user
       user.update_attributes(requested_options)
       respond_to do |format|
