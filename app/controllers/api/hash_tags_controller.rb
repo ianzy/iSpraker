@@ -13,7 +13,7 @@ class Api::HashTagsController < Api::BaseController
     collection = super
     collection.where(:lat => lat_lhs_range..lat_rhs_range,
                      :lng => lng_lhs_range..lng_rhs_range ) if latitude && longitude
-    # collection
+    collection
   end
   
 end
