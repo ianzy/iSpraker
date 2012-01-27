@@ -32,7 +32,11 @@ class Api::UsersController < Api::BaseController
             :lng => user.lng,
             :profile_image_url => user.profile_image_url,
             :description => user.description,
-            :time_zone => user.time_zone
+            :time_zone => user.time_zone,
+            :real_name => user.real_name,
+            :position => user.position,
+            :company => user.company,
+            :phone_number => user.phone_number
           }], :paging => nil 
         }
       end
