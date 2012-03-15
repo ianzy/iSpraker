@@ -1,24 +1,91 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="#">iSpraker</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="mailto:ispraker.contact@gmail.com">Contact Us</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- Main hero unit for a primary marketing message or call to action -->
+  <div class="hero-unit no-background-color">
+    <div class="container">
+    <div class="row">
+      <div class="span5">
+        <h1 class="home-title">iSpraker, explore the crowd!</h1>
+        <div class="home-product-links">
+          <a href="http://www.android.com" class="android-btn"></a>
+          <!--<a href="http://www.android.com" class="iphone-btn"></a> -->
+        </div>
+        <div class="home-product-links">
+          <a href="https://twitter.com/share" class="twitter-share-button ib" data-url="http://www.ispraker.com" data-via="ispraker" data-size="large" data-hashtags="ispraker">Tweet</a>
+          <div class="fb-like ib" data-href="http://www.ispraker.com" data-send="true" data-width="350" data-show-faces="false"></div>
+        </div>
+      </div>
+      <div class="span7">
+        <div class="screenshots right"></div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="span4">
+      <h2>Break the ice</h2>
+       <p>Approach people in a gentle way. iSpraker makes it easy for you to start a conversation and discover new people around you. </p>
+    </div>
+    <div class="span4">
+      <h2>Build you network</h2>
+       <p>Grow your network with customized people recommendation. iSpraker helps you find the people sharing the same interest and group people together based on their geo information. </p>
+   </div>
+    <div class="span4">
+      <h2>Stay in touch</h2>
+      <p>Keep in touch with the people you have connected. iSpraker provide convenient ways for you to stay in touch with people you found. </p>
+    </div>
+  </div>
+
+  </div> <!-- /container -->
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<%= javascript_include_tag "jquery" %>
+<%= javascript_include_tag "bootstrap-transition"  %>
+<%= javascript_include_tag "bootstrap-alert"  %>
+<%= javascript_include_tag "bootstrap-modal"  %>
+<%= javascript_include_tag "bootstrap-dropdown"  %>
+<%= javascript_include_tag "bootstrap-scrollspy"  %>
+<%= javascript_include_tag "bootstrap-tab"  %>
+<%= javascript_include_tag "bootstrap-tooltip"  %>
+<%= javascript_include_tag "bootstrap-popover"  %>
+<%= javascript_include_tag "bootstrap-button"  %>
+<%= javascript_include_tag "bootstrap-collapse"  %>
+<%= javascript_include_tag "bootstrap-carousel"  %>
+<%= javascript_include_tag "bootstrap-typeahead"  %>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
+  if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
-</script>
-
-<div class="show_case">
-<img src="/assets/shaking.jpg" width="100%">
-</div>
-<!-- Main hero unit for a primary marketing message or call to action -->
-<div class="hero_unit intro" z-index="99">
-	<div class="row">
-	  <div class="span4"></div>
-	  <div class="span12"><h1 style="padding:20px; color:white">iSpraker, Explore the crowd</h1></span>
-</div>
-
-<div id="phones" class="phones">
-	<img src="/assets/Android.png" />
-</div>
-
+}(document, 'script', 'facebook-jssdk'));</script>

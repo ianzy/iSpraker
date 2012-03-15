@@ -2,85 +2,45 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>iSpraker</title>
+    <title>iSpraker, explore the crowd!</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
     <!-- Le styles -->
-    <title>ISpraker</title>
-	<%= stylesheet_link_tag    "application" %>
-	<%= javascript_include_tag "application" %>
-	<%= csrf_meta_tags %>
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
-	  (function() {
-	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-	    po.src = 'https://apis.google.com/js/plusone.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-	  })();
-	
-	  $(document).ready(function() {
-		$("#fb_bar").hide()
-		$("#gplus_bar").hide()
-		$("#facebook_btn").click(function() {
-			$("#fb_bar").slideToggle()
-			})
-			
-		$("#gplusbtn").click(function() {
-			$("#gplus_bar").slideToggle()
-		})
-		
-		})
-	</script>
+    <%= stylesheet_link_tag    "bootstrap" %>
+    <%= stylesheet_link_tag    "bootstrap-responsive" %>
+    <%= stylesheet_link_tag    "overrides" %>
+    
+    
+
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "bootstrap" %>
+    <%= csrf_meta_tags %>
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-29154126-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
   </head>
-
+  
   <body>
-
-    <div class="topbar">
-      <div class="fill">
-        <div class="container">
-          <a class="brand" href="#">iSpraker</a>
-        </div>
-		<div id="propaganda">
-		<span class="btn primary"><a href="https://twitter.com/share" data-count="none">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script></span>
-		<a id="facebook_btn" class="btn primary">facebook</a>
-		<div id="gplusbtn" class="btn primary">Google+</div>
-		</div>
-		</div>
+    <%= yield %>
+    
+    <footer class="darkgrey">
+        <hr>
+      <div class="container">
+      <p>&copy; iSpraker 2012</p>
       </div>
-    </div>
-	<div id="fb-root"></div>
-	<div id="fb_bar" class="fb-like" style="position:absolute;top:40px;right:0px" data-send="true" data-width="450" data-show-faces="false"></div>	</div>
-	<div id="gplus_bar" style="background-color:white;position:absolute;top:40px;right:0px">
-		<g:plusone annotation="inline"></g:plusone>
-	</div>
-	
-    <div>
-      <%= yield %>
-    </div>
-
-	<div id="footer">
-	   <div class="container">
-	   	<div class="nav">
-	   		<ul>
-	      			<li><a href="/aboutus">About us</a></li>
-	      			<li><a href="#" target="_blank">Press</a></li>
-	      			<li><a href="/contactus">Contact</a></li>
-	      			<li><a href="/api">Developers</a></li>
-	   		</ul>
-	   	</div>
-	   	<br>
-	   </div>
-	</div>
+    </footer>
   </body>
 </html>
